@@ -6,7 +6,7 @@ import {
 } from "./utils/functions";
 
 const Functions = ({userId}) => {
-  const [Id, setUserId] = useState(userId);
+  const [Id] = useState(userId);
   const [loading, setLoading] = useState(false);
 
   const createNewProfile = async()=> {
@@ -19,8 +19,8 @@ const Functions = ({userId}) => {
       setLoading(false);
     }  
 };
-  useEffect(async() => {
-    await createNewProfile()
+  useEffect(() => {
+     createNewProfile()
   }, []);
 
 return (
