@@ -6,7 +6,7 @@ import {
 } from "./utils/functions";
 
 const Functions = () => {
-  const [userId, setUserId] = useState("ID");
+  const [userId, setUserId] = useState("ID Not found");
   const [loading, setLoading] = useState(false);
 
   const createNewProfile = async()=> {

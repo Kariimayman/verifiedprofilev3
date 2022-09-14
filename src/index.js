@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { initializeContract } from "./components/utils/near";
 
 import "bootstrap";
@@ -11,15 +10,14 @@ import { Buffer } from 'buffer';
 
 // @ts-ignore
 window.Buffer = Buffer;
+
 window.nearInitPromise = initializeContract()
   .then(() => {
-    ReactDOM.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>,
-      document.getElementById("root")
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      // <React.StrictMode>
+          <App />
+      // </React.StrictMode>
     );
   })
   .catch(console.error);
-
-reportWebVitals();

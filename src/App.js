@@ -37,7 +37,7 @@ const App = function AppWrapper() {
               />
             </Nav.Item>
           </Nav>
-          <dev> <h1 align="middle">Verified Accounts</h1></dev>
+          <div> <h1 align="middle">Verified Accounts</h1></div>
           <main>
           {account.accountId === "kareemayman.testnet" ? (
             <Admin/>
