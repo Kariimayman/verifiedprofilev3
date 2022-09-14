@@ -43,7 +43,7 @@ const App = function AppWrapper() {
             <Admin/>
           ): 
             (
-              <Functions/>
+              <Functions userId = {account.accountId} />
             )
           }
           </main>

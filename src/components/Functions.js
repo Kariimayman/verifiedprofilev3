@@ -5,14 +5,13 @@ import {
   createProfile,
 } from "./utils/functions";
 
-const Functions = () => {
-  const [userId, setUserId] = useState("ID Not found");
+const Functions = ({userId}) => {
+  const [Id, setUserId] = useState(userId);
   const [loading, setLoading] = useState(false);
 
   const createNewProfile = async()=> {
     try {
       setLoading(true);
-      setUserId(window.walletConnection.account().accountId)
       await (createProfile());
     } catch (error) {
       console.log(error);
@@ -28,7 +27,7 @@ return (
   <>
     {!loading ? (
       <>
-      <Direct ID = {userId}/>
+      <Direct ID = {Id}/>
       </>
 
     ) : (
