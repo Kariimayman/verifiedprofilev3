@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useState } from "react";
 import Direct from "./Direct"
 import Loader from "./utils/loader";
 import storage from "./storageconfig"
@@ -12,7 +12,6 @@ const [ID] = useState(userID);
 const [loading, setLoading] = useState(false);
 const [showform, setForm] = useState(true);
 const [file, setFile] = useState([]);
-const [percent, setPercent] = useState(0);
 const [urls, setUrls] = useState([]);
 
 const addVerification = async (userId , type) => {
@@ -45,12 +44,6 @@ const handleUpload = () => {
   promises.push(uploadTask);
   uploadTask.on(
       "state_changed",
-      (snapshot) => {
-          const percent = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setPercent(percent);
-      },
       (err) => console.log(err),
       async () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -81,10 +74,6 @@ return (
           <div style={style}>3. Picture of you with the ID</div>
           <div> 
           <input  type="file" multiple onChange={handleChange} />          
-          </div>
-
-          <div> 
-          <p>{percent} % of the upload is done</p>
           </div>
           <div> 
           <button onClick={handleUpload}> Submit Form </button>
